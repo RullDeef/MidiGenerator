@@ -22,3 +22,11 @@ rules = {
     ":part": "I III-1 V I>"
 }
 """
+
+""" "Three rules"
+rules = {
+    "": "T-12 :pyro",
+    ":pyro": "I T*5 :inner T^ I",
+    ":inner": "I V I T*2 :pyro :inner :pyro T^ I IV I"
+}
+"""

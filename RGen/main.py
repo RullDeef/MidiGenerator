@@ -2,16 +2,17 @@ import music21
 from rulesparser import apply_rules, print_notes
 
 rules = {
-    "": "T-12 :pyro",
-    ":pyro": "I T*5 :inner T^ I",
-    ":inner": "I V I T*2 :pyro :inner :pyro T^ I IV I"
+    "": "T-12 :song",
+    ":song": ":begin :mid :end",
+
+    ":begin": ":bp1 :bp2 T*3 :bp1 T^",
+
+    ":bp1": "I I V I> I> V V+1 IV :bp1",
+    ":bp2": "V< II V VII I> III-1 IV II"
 }
 
-# generations = 10
-tokens_count = 200
-
 #print(tokens)
-note_stream = apply_rules(rules, max_tokens=tokens_count)
+note_stream = apply_rules(rules, generations=7)
 print_notes(note_stream)
 
-#note_stream.write("midi", fp="out.midi")
+note_stream.write("midi", fp="out2.midi")

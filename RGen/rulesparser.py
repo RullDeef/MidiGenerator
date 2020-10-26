@@ -119,6 +119,6 @@ def generate_tokens(rules, generations, max_tokens):
     return tokens
 
 
-def apply_rules(rules, *, generations=1, max_tokens=None):
+def apply_rules(rules, *, generations=1, max_tokens=0):
     tokens = generate_tokens(rules, generations, max_tokens)
     return parse_tokens(tokens)
